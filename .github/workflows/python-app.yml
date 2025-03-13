@@ -25,6 +25,12 @@ jobs:
     - name: create an executable
       run: |
         pyinstaller --exclude-module bleak.backends.corebluetooth --name "Smart Instrument Interface" --onefile --hidden-import winrt --hidden-import winrt.windows.foundation --hidden-import winrt.windows.devices.bluetooth --hidden-import winrt.windows.foundation.collections --hidden-import bleak.backends.winrt.scanner --hidden-import bleak.backends.winrt.client --collect-all winrt --collect-all bleak main.py
+    - name: list all files
+      run: |
+        ls
+    - name: list dist
+      run: |
+        ls dist/
     - name: check if the file exists
       run: |
         if [ ! -f "dist/Smart\ Instrument\ Interface" ]; then
