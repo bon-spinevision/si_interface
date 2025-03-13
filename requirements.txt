@@ -1,0 +1,5 @@
+bleak
+customtkinter
+keyboard
+python-dotenv
+asyncio
