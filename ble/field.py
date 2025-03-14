@@ -31,13 +31,6 @@ async def get_device():
     
     return devices[deviceNo]
 
-# filter all services to conserve the relevant Service Field
-def get_newton_service(services: BleakGATTServiceCollection):
-    for service in services:
-        if (service.uuid == globals.FIELD_SERVICE_UUID):
-            return service
-    return None
-
 def set_tar():
     globals.tare = 0 if (globals.force < 0) else globals.force
 
@@ -111,7 +104,7 @@ async def connect_to_device(device: BLEDevice):
             if client.is_connected:
                 await client.disconnect()
 
-async def ble():
+async def field_data_retrieval():
     loop = asyncio.get_event_loop()
     log.info("Searching available devices...")
     keyboard.add_hotkey('space', set_tar)

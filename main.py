@@ -1,11 +1,11 @@
 import asyncio
-from ble import ble
+from ble.field import field_data_retrieval
 from graph import graph
 import globals
 
 async def main():
     globals.init()
-    task1 = asyncio.create_task(ble())
+    task1 = asyncio.create_task(field_data_retrieval())
     task2 = asyncio.create_task(graph())
     tasks = [task1, task2]
 
